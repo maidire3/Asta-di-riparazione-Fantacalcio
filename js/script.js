@@ -229,3 +229,24 @@ function inserisciDefaultPlayers() {
 
 const btnDefault = document.getElementById("defaultPlayers");
 btnDefault.addEventListener("click", inserisciDefaultPlayers);
+
+function checkOrientation() {
+  const rotateMessage = document.getElementById("rotateDeviceMessage");
+  if (window.innerHeight > window.innerWidth) {
+    // verticale → mostra il messaggio e nascondi il resto
+    rotateMessage.style.display = "flex";
+    document.querySelector("body").style.overflow = "hidden";
+    document.querySelector(".grid").style.display = "none";
+    document.getElementById("defaultPlayers").style.display = "none";
+  } else {
+    // orizzontale → mostra il sito
+    rotateMessage.style.display = "none";
+    document.querySelector("body").style.overflow = "auto";
+    document.querySelector(".grid").style.display = "grid";
+    document.getElementById("defaultPlayers").style.display = "block";
+  }
+}
+
+// Controlla al caricamento e ad ogni resize
+window.addEventListener("load", checkOrientation);
+window.addEventListener("resize", checkOrientation);
