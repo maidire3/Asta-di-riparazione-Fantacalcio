@@ -3,6 +3,19 @@ const modal = document.getElementById("modal");
 const modalTitle = document.getElementById("modal-title");
 const closeModal = document.getElementById("closeModal");
 
+const creditiInizialiSquadre = {
+  "AC Orazkhelia": 0,
+  "Aston Villain": 0,
+  "Bayer Leverkubo": 7,
+  "FC Kame House": 0,
+  "GiocatoriSempreCaxxuti": 11,
+  "One Pisa": 18,
+  "Real Madrink": 2,
+  "Woolferhampton": 3,
+  "Yara FC": 16,
+  "Ovo al tegamino": 9
+};
+
 // Oggetto che contiene i dati di ogni squadra
 const squadreData = {};
 
@@ -19,7 +32,8 @@ squadre.forEach(squadra => {
         portieri: [],
         difensori: [],
         centrocampisti: [],
-        attaccanti: []
+        attaccanti: [],
+        creditiIniziali: creditiInizialiSquadre[nomeSquadra]
       };
     }
 
@@ -78,9 +92,75 @@ bottoniAggiungi.forEach(bottone => {
 
     // Salva nell'oggetto squadra
     squadreData[nomeSquadra][ruolo].push({ nome: nomePlayer, crediti: creditiPlayer });
+    
+    // Aggiorna i crediti nella tabella HTML
+    aggiornaCreditiHTML(nomeSquadra);
+
+    // Aggiorna gli svincolati nella tabella HTML
+    aggiornaSvincolatiHTML(nomeSquadra);
 
     // Pulisci input
     nomePlayerInput.value = "";
     creditiPlayerInput.value = "";
   });
 });
+
+function calcolaCreditiSquadra(nomeSquadra) {
+  if (!squadreData[nomeSquadra]) return 0;
+
+  let totale = squadreData[nomeSquadra].creditiIniziali;
+
+  // Cicla su tutti i ruoli
+  ["portieri", "difensori", "centrocampisti", "attaccanti"].forEach(ruolo => {
+    squadreData[nomeSquadra][ruolo].forEach(player => {
+      totale += Math.ceil(Number(player.crediti)/2); // somma dei crediti
+    });
+  });
+
+  return totale;
+}
+
+function aggiornaCreditiHTML(nomeSquadra) {
+  // Trova l'elemento .numeroCrediti corrispondente
+  const tutteLeSquadre = document.querySelectorAll(".nomeSquadra");
+  tutteLeSquadre.forEach((squadraElem, index) => {
+    if (squadraElem.textContent === nomeSquadra) {
+      const numeroCreditiElem = document.querySelectorAll(".numeroCrediti")[index];
+      numeroCreditiElem.textContent = calcolaCreditiSquadra(nomeSquadra);
+    }
+  });
+}
+
+function contatoreRuoli(nomeSquadra) {
+  if (!squadreData[nomeSquadra]) return null; // squadra non esiste
+
+  // Oggetto che conterrà il numero di giocatori per ruolo
+  const conteggio = {
+    portieri: 0,
+    difensori: 0,
+    centrocampisti: 0,
+    attaccanti: 0
+  };
+
+  // Cicla su tutti i ruoli e conta i giocatori
+  ["portieri", "difensori", "centrocampisti", "attaccanti"].forEach(ruolo => {
+    conteggio[ruolo] = squadreData[nomeSquadra][ruolo].length;
+  });
+
+  return conteggio;
+}
+
+function aggiornaSvincolatiHTML(nomeSquadra) {
+  const tutteLeSquadre = document.querySelectorAll(".nomeSquadra");
+  
+  tutteLeSquadre.forEach((squadraElem, index) => {
+    if (squadraElem.textContent === nomeSquadra) {
+      // numeroSvincolati è il terzo div dopo nomeSquadra
+      const svincolatiElem = document.querySelectorAll(".numeroSvincolati")[index];
+      const conteggio = contatoreRuoli(nomeSquadra);
+
+      // Aggiorna il testo in formato P-D-C-A
+      svincolatiElem.textContent = `${conteggio.portieri}-${conteggio.difensori}-${conteggio.centrocampisti}-${conteggio.attaccanti}`;
+    }
+  });
+}
