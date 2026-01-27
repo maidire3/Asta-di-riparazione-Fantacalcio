@@ -63,6 +63,7 @@ closeModal.addEventListener("click", () => {
 
 // Aggiunge il giocatore
 const bottoniAggiungi = document.querySelectorAll(".addPlayer");
+// Aggiunge il giocatore
 bottoniAggiungi.forEach(bottone => {
   bottone.addEventListener("click", () => {
     const ruoloDiv = bottone.closest(".ruolo");
@@ -91,6 +92,23 @@ bottoniAggiungi.forEach(bottone => {
     // Aggiungi al DOM
     const li = document.createElement("li");
     li.textContent = `${nomePlayer} (${creditiPlayer})`;
+
+    // Qui aggiungiamo il pulsante rimuovi
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "rimuovi";
+    deleteBtn.addEventListener("click", () => {
+      // Rimuove dal DOM
+      li.remove();
+      // Rimuove dall'oggetto squadreData
+      squadreData[nomeSquadra][ruolo] = squadreData[nomeSquadra][ruolo].filter(
+        p => p.nome !== nomePlayer || p.crediti != creditiPlayer
+      );
+      // Aggiorna crediti e svincolati
+      aggiornaCreditiHTML(nomeSquadra);
+      aggiornaSvincolatiHTML(nomeSquadra);
+    });
+
+    li.append(deleteBtn);
     listaPlayer.appendChild(li);
 
     // Salva nell'oggetto squadra
