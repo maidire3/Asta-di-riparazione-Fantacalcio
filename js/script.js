@@ -187,7 +187,9 @@ const defaultPlayers = {
     {nome: "Vazquez*", crediti: 11, ruolo: "centrocampisti"}
   ],
   "Yara FC": [{nome: "Bailey*", crediti: 11, ruolo: "centrocampisti"}],
-  "Ovo al tegamino": [{nome: "Carboni V.*", crediti: 6, ruolo:"centrocampisti"}]
+  "Ovo al tegamino": [{nome: "Carboni V.*", crediti: 6, ruolo:"centrocampisti"},
+    {nome: "Mandas*", crediti: 6, ruolo: "portieri"}
+  ]
 };
 
 // Df Players del primo SAVE
