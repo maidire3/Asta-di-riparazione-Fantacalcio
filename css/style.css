@@ -119,6 +119,10 @@ h1 {
 .ruolo ol {
   padding-left: 20px;
   margin-bottom: 8px;
+  /*     li{
+          display:flex;
+          justify-content: space-between;
+      } */
 }
 .ruolo input[type=text], .ruolo input[type=number] {
   width: 100%;

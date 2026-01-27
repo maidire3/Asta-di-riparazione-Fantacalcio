@@ -44,7 +44,10 @@ squadre.forEach(squadra => {
       // Aggiungi i giocatori già presenti in questa squadra
       squadreData[nomeSquadra][ruolo].forEach(player => {
         const li = document.createElement("li");
+        const deleteBtn=document.createElement("button");
+        deleteBtn.textContent="rimuovi";
         li.textContent = `${player.nome} (${player.crediti})`;
+        li.append(deleteBtn);
         lista.appendChild(li);
       });
     });
@@ -113,7 +116,7 @@ function calcolaCreditiSquadra(nomeSquadra) {
   // Cicla su tutti i ruoli
   ["portieri", "difensori", "centrocampisti", "attaccanti"].forEach(ruolo => {
     squadreData[nomeSquadra][ruolo].forEach(player => {
-      totale += Math.ceil(Number(player.crediti)/2); // somma dei crediti
+      totale += Math.ceil(Number(player.crediti)/2); // somma dei crediti dopo aver dimezzato i crediti del player
     });
   });
 
@@ -155,7 +158,6 @@ function aggiornaSvincolatiHTML(nomeSquadra) {
   
   tutteLeSquadre.forEach((squadraElem, index) => {
     if (squadraElem.textContent === nomeSquadra) {
-      // numeroSvincolati è il terzo div dopo nomeSquadra
       const svincolatiElem = document.querySelectorAll(".numeroSvincolati")[index];
       const conteggio = contatoreRuoli(nomeSquadra);
 
@@ -170,9 +172,11 @@ const defaultPlayers = {
   "AC Orazkhelia": [
     { nome: "Bravo*", crediti: 1, ruolo: "attaccanti" }
   ],
+
   "Aston Villain": [],
+
   "Bayer Leverkubo": [],
-  "GiocatoriSempreCaxxuti": [],
+
   "FC Kame House": [
 
     { nome: "Martinelli T.*", crediti: 1, ruolo: "portieri" },
@@ -180,20 +184,27 @@ const defaultPlayers = {
     { nome: "Castellanos*", crediti: 141, ruolo: "attaccanti" },
     { nome: "Dzeko*", crediti: 2, ruolo: "attaccanti" }
   ],
+
+  "GiocatoriSempreCaxxuti": [],
+
   "One Pisa": [
       {nome: "stanciu*", crediti: 9, ruolo: "centrocampisti"},
       {nome: "Lucca*", crediti: 10, ruolo: "attaccanti"}
     ],
+
   "Real Madrink": [
     { nome: "Lang*", crediti: 1, ruolo: "attaccanti" }
 ],
+
     "Woolferhampton": [
         {nome: "Lovik*", crediti: 1, ruolo: "difensori"},
         {nome: "Vazquez*", crediti: 11, ruolo: "centrocampisti"}
     ],
+
     "Yara FC":[
         {nome: "Bailey*", crediti: 11, ruolo: "centrocampisti"}
     ],
+
     "Ovo al tegamino":[
         {nome: "Carboni V.*", crediti: 6, ruolo:"centrocampisti"}
     ]
@@ -227,8 +238,36 @@ function inserisciDefaultPlayers() {
   }
 }
 
+//Pulsante per impostare i giocatori di default che se ne sono già andati
 const btnDefault = document.getElementById("defaultPlayers");
 btnDefault.addEventListener("click", inserisciDefaultPlayers);
+
+//Pulsante per salvare
+const btnSave= document.getElementById("salvataggio");
+btnSave.addEventListener("click", salvaGiocatori);
+
+function salvaGiocatori() {
+    // Crea un oggetto "pulito" per il log
+    const output = {};
+
+    for (const nomeSquadra in squadreData) {
+        output[nomeSquadra] = [];
+
+        ["portieri", "difensori", "centrocampisti", "attaccanti"].forEach(ruolo => {
+            squadreData[nomeSquadra][ruolo].forEach(player => {
+                output[nomeSquadra].push({
+                    nome: player.nome,
+                    crediti: player.crediti,
+                    ruolo: ruolo
+                });
+            });
+        });
+    }
+
+    // Stampa in console in formato leggibile
+    console.log(JSON.stringify(output, null, 2));
+}
+
 
 function checkOrientation() {
   const rotateMessage = document.getElementById("rotateDeviceMessage");
