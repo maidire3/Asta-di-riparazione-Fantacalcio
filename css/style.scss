@@ -29,6 +29,8 @@ h1 {
     background-color: #eee;
 }
 
+
+//MODAL 
 .modal {
     position: fixed;
     top: 0;
@@ -54,20 +56,20 @@ h1 {
 
 .ruolo {
     margin-bottom: 15px;
-}
-
-.ruolo input {
-    display: block;
-    width: 100%;
-    margin-bottom: 5px;
+    
+    .input{
+        display: block;
+        width: 100%;
+        margin-bottom: 5px;
+    }
 }
 
 .nomeSquadra {
     cursor: pointer;
     color: #0077cc;
+    &:hover{
+        text-decoration: underline;
+    }
 }
 
-.nomeSquadra:hover {
-    text-decoration: underline;
-}
 
