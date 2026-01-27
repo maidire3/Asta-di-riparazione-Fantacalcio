@@ -14,9 +14,16 @@ h1 {
 }
 
 /* PULSANTE DEFAULT */
-#defaultPlayers {
+.pulsantiere{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.btnSuccess {
   display: block;
-  margin: 0 auto 20px auto;
+  margin: 0 10px;
   padding: 10px 20px;
   background-color: #0077cc;
   color: white;
@@ -25,11 +32,22 @@ h1 {
   font-size: 1em;
   cursor: pointer;
   transition: background-color 0.2s, transform 0.2s;
+  &:hover{
+    background-color: #005fa3;
+    transform: scale(1.05);
+  }
 }
 
-#defaultPlayers:hover {
-  background-color: #005fa3;
-  transform: scale(1.05);
+#defaultPlayers{
+    background-color:blue;
+}
+
+#salvataggio{
+    background-color: green;
+}
+
+#saveOne{
+    background-color: orange;
 }
 
 /* GRIGLIA DESKTOP */
@@ -89,7 +107,7 @@ h1 {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .modal-content {
