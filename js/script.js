@@ -27,7 +27,7 @@ function creaLiConRimuovi(player, ruolo, nomeSquadra) {
     // Pulsante piccolo X
     const deleteBtn = document.createElement("button");
     deleteBtn.innerHTML = "&times;"; // simbolo ×
-    deleteBtn.classList.add("delete-btn"); // aggiungiamo una classe per stile
+    deleteBtn.classList.add("delete-btn"); // classe per stile
 
     deleteBtn.addEventListener("click", () => {
         li.remove();
@@ -190,6 +190,7 @@ const defaultPlayers = {
   "Ovo al tegamino": [{nome: "Carboni V.*", crediti: 6, ruolo:"centrocampisti"}]
 };
 
+// Df Players del primo SAVE
 const primoSave = {
   "AC Orazkhelia": [
     {
