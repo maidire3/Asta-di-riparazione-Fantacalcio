@@ -226,3 +226,18 @@ h1 {
     margin: 4px 0;
   }
 }
+
+/* Pulsante rimuovi a destra come X piccola */
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: red;
+  font-weight: bold;
+  float: right;
+  cursor: pointer;
+  font-size: 1.5em;
+  margin-left: 10px;
+  &:hover{
+      color: darkred;
+  }
+}
