@@ -164,3 +164,68 @@ function aggiornaSvincolatiHTML(nomeSquadra) {
     }
   });
 }
+
+
+const defaultPlayers = {
+  "AC Orazkhelia": [
+    { nome: "Bravo*", crediti: 1, ruolo: "attaccanti" }
+  ],
+  "Aston Villain": [],
+  "Bayer Leverkubo": [],
+  "GiocatoriSempreCaxxuti": [],
+  "FC Kame House": [
+
+    { nome: "Martinelli T.*", crediti: 1, ruolo: "portieri" },
+    { nome: "Guendouzi*", crediti: 1, ruolo: "centrocampisti" },
+    { nome: "Castellanos*", crediti: 141, ruolo: "attaccanti" },
+    { nome: "Dzeko*", crediti: 2, ruolo: "attaccanti" }
+  ],
+  "One Pisa": [
+      {nome: "stanciu*", crediti: 9, ruolo: "centrocampisti"},
+      {nome: "Lucca*", crediti: 10, ruolo: "attaccanti"}
+    ],
+  "Real Madrink": [
+    { nome: "Lang*", crediti: 1, ruolo: "attaccanti" }
+],
+    "Woolferhampton": [
+        {nome: "Lovik*", crediti: 1, ruolo: "difensori"},
+        {nome: "Vazquez*", crediti: 11, ruolo: "centrocampisti"}
+    ],
+    "Yara FC":[
+        {nome: "Bailey*", crediti: 11, ruolo: "centrocampisti"}
+    ],
+    "Ovo al tegamino":[
+        {nome: "Carboni V.*", crediti: 6, ruolo:"centrocampisti"}
+    ]
+};
+
+function inserisciDefaultPlayers() {
+    btnDefault.style.display="none";
+  for (const nomeSquadra in defaultPlayers) {
+    // Inizializza la squadra se non esiste ancora
+    if (!squadreData[nomeSquadra]) {
+      squadreData[nomeSquadra] = {
+        portieri: [],
+        difensori: [],
+        centrocampisti: [],
+        attaccanti: [],
+        creditiIniziali: creditiInizialiSquadre[nomeSquadra] || 0
+      };
+    }
+
+    // Aggiungi tutti i giocatori predefiniti
+    defaultPlayers[nomeSquadra].forEach(player => {
+      squadreData[nomeSquadra][player.ruolo].push({
+        nome: player.nome,
+        crediti: player.crediti
+      });
+    });
+
+    // Aggiorna il DOM
+    aggiornaCreditiHTML(nomeSquadra);
+    aggiornaSvincolatiHTML(nomeSquadra);
+  }
+}
+
+const btnDefault = document.getElementById("defaultPlayers");
+btnDefault.addEventListener("click", inserisciDefaultPlayers);
