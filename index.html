@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Fantacalcio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+
+    <h1>Squadre Fantacalcio</h1>
+
+    <div class="grid">
+        <!-- Intestazioni -->
+        <div class="header">Squadra</div>
+        <div class="header">Crediti</div>
+        <div class="header">Svincolati (P-D-C-A)</div>
+
+        <!-- Squadre -->
+        <div class="nomeSquadra" id="Cava">AC Orazkhelia</div>
+        <div class="numeroCrediti">120</div>
+        <div>1-2-3-1</div>
+
+        <div class="nomeSquadra" id="Gio">Aston Villain</div>
+        <div class="numeroCrediti">95</div>
+        <div>0-1-2-2</div>
+
+        <div class="nomeSquadra">Bayer Leverkubo</div>
+        <div class="numeroCrediti">110</div>
+        <div>1-1-1-1</div>
+
+        <div class="nomeSquadra">FC Kame House</div>
+        <div class="numeroCrediti">80</div>
+        <div>0-2-1-0</div>
+
+        <div class="nomeSquadra">GiocatoriSempreCaxxuti</div>
+        <div class="numeroCrediti">70</div>
+        <div>1-0-2-3</div>
+
+        <div class="nomeSquadra">One Pisa</div>
+        <div class="numeroCrediti">105</div>
+        <div>0-1-1-1</div>
+
+        <div class="nomeSquadra">Real Madrink</div>
+        <div class="numeroCrediti">90</div>
+        <div>1-1-0-2</div>
+
+        <div class="nomeSquadra">Woolferhampton</div>
+        <div class="numeroCrediti">100</div>
+        <div>0-0-3-1</div>
+
+        <div class="nomeSquadra">Yara FC</div>
+        <div class="numeroCrediti">115</div>
+        <div>1-2-0-0</div>
+
+        <div class="nomeSquadra">Ovo al tegamino</div>
+        <div class="numeroCrediti">85</div>
+        <div>0-1-2-1</div>
+    </div>
+
+
+    <!-- MODAL -->
+<div id="modal" class="modal hidden">
+    <div class="modal-content">
+        <h2 id="modal-title"></h2>
+
+        <div class="ruolo">
+            <h3>Portieri</h3>
+            <input type="text" placeholder="Nome giocatore">
+            <input type="number" placeholder="Crediti">
+        </div>
+
+        <div class="ruolo">
+            <h3>Difensori</h3>
+            <input type="text" placeholder="Nome giocatore">
+            <input type="number" placeholder="Crediti">
+        </div>
+
+        <div class="ruolo">
+            <h3>Centrocampisti</h3>
+            <input type="text" placeholder="Nome giocatore">
+            <input type="number" placeholder="Crediti">
+        </div>
+
+        <div class="ruolo">
+            <h3>Attaccanti</h3>
+            <input type="text" placeholder="Nome giocatore">
+            <input type="number" placeholder="Crediti">
+        </div>
+
+        <button id="closeModal">Chiudi</button>
+    </div>
+</div>
+
+</body>
+</html>
