@@ -14,7 +14,9 @@ const creditiInizialiSquadre = {
 
 // --- DEFAULT PLAYERS ---
 const defaultPlayers = {
-  "AC Orazkhelia": [{ nome: "Bravo*", crediti: 1, ruolo: "attaccanti" }],
+  "AC Orazkhelia": [{ nome: "Bravo*", crediti: 1, ruolo: "attaccanti" },
+    {nome: "Ngonge*", crediti: 11, ruolo: "attaccanti"}
+  ],
   "Aston Villain": [],
   "Bayer Leverkubo": [],
   "FC Kame House": [
@@ -23,7 +25,7 @@ const defaultPlayers = {
     { nome: "Castellanos*", crediti: 141, ruolo: "attaccanti" },
     { nome: "Dzeko*", crediti: 2, ruolo: "attaccanti" }
   ],
-  "GiocatoriSempreCazzuti": [],
+  "GiocatoriSempreCazzuti": [{nome: "Cutrone*", crediti: 1, ruolo: "attaccanti"}],
   "One Pisa": [
     {nome: "stanciu*", crediti: 9, ruolo: "centrocampisti"},
     {nome: "Lucca*", crediti: 10, ruolo: "attaccanti"}
@@ -31,7 +33,8 @@ const defaultPlayers = {
   "Real Madrink": [{ nome: "Lang*", crediti: 1, ruolo: "attaccanti" }],
   "Woolferhampton": [
     {nome: "Lovik*", crediti: 1, ruolo: "difensori"},
-    {nome: "Vazquez*", crediti: 11, ruolo: "centrocampisti"}
+    {nome: "Vazquez*", crediti: 11, ruolo: "centrocampisti"},
+    {nome: "Gronbaek*", crediti: 7, ruolo: "centrocampisti"}
   ],
   "Yara FC": [{nome: "Bailey*", crediti: 11, ruolo: "centrocampisti"}],
   "Ovo al tegamino": [{nome: "Carboni V.*", crediti: 6, ruolo:"centrocampisti"},
@@ -68,7 +71,7 @@ const primoSave = {
       "ruolo": "attaccanti"
     },
     {
-      "nome": "Ngonge",
+      "nome": "Ngonge*",
       "crediti": "11",
       "ruolo": "attaccanti"
     }
@@ -171,7 +174,7 @@ const primoSave = {
       "ruolo": "attaccanti"
     },
     {
-      "nome": "Cutrone",
+      "nome": "Cutrone*",
       "crediti": "1",
       "ruolo": "attaccanti"
     }
@@ -257,7 +260,7 @@ const primoSave = {
       "ruolo": "centrocampisti"
     },
     {
-      "nome": "Gronbaek",
+      "nome": "Gronbaek*",
       "crediti": "7",
       "ruolo": "centrocampisti"
     },
