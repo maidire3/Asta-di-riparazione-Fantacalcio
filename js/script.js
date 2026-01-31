@@ -3,19 +3,6 @@ const modal = document.getElementById("modal");
 const modalTitle = document.getElementById("modal-title");
 const closeModal = document.getElementById("closeModal");
 
-const creditiInizialiSquadre = {
-  "AC Orazkhelia": 0,
-  "Aston Villain": 0,
-  "Bayer Leverkubo": 7,
-  "FC Kame House": 0,
-  "GiocatoriSempreCazzuti": 11,
-  "One Pisa": 18,
-  "Real Madrink": 2,
-  "Woolferhampton": 3,
-  "Yara FC": 16,
-  "Ovo al tegamino": 9
-};
-
 // Oggetto che contiene i dati di ogni squadra
 const squadreData = {};
 

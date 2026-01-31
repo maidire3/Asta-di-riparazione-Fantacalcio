@@ -1,3 +1,17 @@
+// Crediti iniziali Squadre
+const creditiInizialiSquadre = {
+  "AC Orazkhelia": 0,
+  "Aston Villain": 0,
+  "Bayer Leverkubo": 7,
+  "FC Kame House": 0,
+  "GiocatoriSempreCazzuti": 11,
+  "One Pisa": 18,
+  "Real Madrink": 2,
+  "Woolferhampton": 3,
+  "Yara FC": 16,
+  "Ovo al tegamino": 9
+};
+
 // --- DEFAULT PLAYERS ---
 const defaultPlayers = {
   "AC Orazkhelia": [{ nome: "Bravo*", crediti: 1, ruolo: "attaccanti" }],
