@@ -147,9 +147,27 @@ function aggiornaSvincolatiHTML(nomeSquadra) {
     if (squadraElem.textContent === nomeSquadra) {
       const svincolatiElem = document.querySelectorAll(".numeroSvincolati")[index];
       const conteggio = contatoreRuoli(nomeSquadra);
-      svincolatiElem.textContent = `${conteggio.portieri}-${conteggio.difensori}-${conteggio.centrocampisti}-${conteggio.attaccanti}`;
+      const numVenduti=contaSvincolati(nomeSquadra);
+      svincolatiElem.textContent = `${conteggio.portieri}-${conteggio.difensori}-${conteggio.centrocampisti}-${conteggio.attaccanti} =>  ${conteggio.portieri+conteggio.difensori+conteggio.centrocampisti+conteggio.attaccanti-numVenduti} + ${numVenduti}* =  ${conteggio.portieri+conteggio.difensori+conteggio.centrocampisti+conteggio.attaccanti}`;
     }
   });
+}
+
+function contaSvincolati(nomeSquadra) {
+  let count = 0;
+
+  const squadra = squadreData[nomeSquadra];
+  if (!squadra) return 0;
+
+  ["portieri", "difensori", "centrocampisti", "attaccanti"].forEach(ruolo => {
+    squadra[ruolo].forEach(player => {
+      if (player.nome.includes("*")) {
+        count++;
+      }
+    });
+  });
+
+  return count;
 }
 
 
