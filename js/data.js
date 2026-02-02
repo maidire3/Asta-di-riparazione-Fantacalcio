@@ -74,17 +74,22 @@ const primoSave = {
       "nome": "Ngonge*",
       "crediti": "11",
       "ruolo": "attaccanti"
+    },
+    {
+      "nome": "Lookman*",
+      "crediti": "13",
+      "ruolo": "attaccanti"
     }
   ],
   "Aston Villain": [
     {
-      "nome": "Martinez Jo",
-      "crediti": "1",
-      "ruolo": "portieri"
-    },
-    {
       "nome": "Tavares",
       "crediti": "30",
+      "ruolo": "difensori"
+    },
+    {
+      "nome": "Joao Mario",
+      "crediti": "5",
       "ruolo": "difensori"
     },
     {
@@ -123,11 +128,6 @@ const primoSave = {
       "nome": "Belotti",
       "crediti": "18",
       "ruolo": "attaccanti"
-    },
-    {
-      "nome": "Soulemana",
-      "crediti": "1",
-      "ruolo": "attaccanti"
     }
   ],
   "FC Kame House": [
@@ -157,10 +157,15 @@ const primoSave = {
       "ruolo": "attaccanti"
     }
   ],
-    "GiocatoriSempreCazzuti": [
+  "GiocatoriSempreCazzuti": [
     {
       "nome": "Floriani Mussolini",
       "crediti": "4",
+      "ruolo": "difensori"
+    },
+    {
+      "nome": "Di Lorenzo",
+      "crediti": "30",
       "ruolo": "difensori"
     },
     {
@@ -328,5 +333,5 @@ const primoSave = {
       "crediti": "1",
       "ruolo": "attaccanti"
     }
-  ],
+  ]
 }
