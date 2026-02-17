@@ -175,6 +175,7 @@ function contaSvincolati(nomeSquadra) {
 function inserisciDefaultPlayers(giocatoriDiDefault) {
   btnDefault.classList.add("hidden");
   btnPrimoSalvataggio.classList.add("hidden");
+  btnSecondoSalvataggio.classList.add("hidden");
   for (const nomeSquadra in giocatoriDiDefault) {
     if (!squadreData[nomeSquadra]) {
       squadreData[nomeSquadra] = {
@@ -220,6 +221,39 @@ function salvaGiocatori() {
 const btnPrimoSalvataggio = document.getElementById("saveOne");
 btnPrimoSalvataggio.addEventListener("click", () => {
   inserisciDefaultPlayers(primoSave);
+});
+
+const btnSecondoSalvataggio = document.getElementById("saveTwo");
+btnSecondoSalvataggio.addEventListener("click", () => {
+  inserisciDefaultPlayers(secondSave);
+    
+  //Compaiono le emoticon in base alle squadre ufficiali, purtroppo è buggato devo fixxarlo
+/*   const tutteLeSquadre = document.querySelectorAll(".nomeSquadra");
+  tutteLeSquadre.forEach(squadra => {
+    const id = squadra.id;
+
+    if (squadreUfficiali.includes(id)) {
+      squadra.textContent = squadra.textContent.replace(" ✅", "").replace(" ❌", "");
+      squadra.append(" ✅");
+    } else {
+      squadra.textContent = squadra.textContent.replace(" ✅", "").replace(" ❌", "");
+      squadra.append(" ❌");
+    }
+  }); */
+
+  //Al posto di aggiungere l'emoticon ho cambiato colore alla squadra
+  const tutteLeSquadre = document.querySelectorAll(".nomeSquadra");
+  tutteLeSquadre.forEach(squadra => {
+    const id = squadra.id;
+
+    if (squadreUfficiali.includes(id)) {
+      squadra.style.color="rgb(21, 212, 21)";
+    } else {
+      squadra.style.color="Red";
+    }
+  });
+
+  
 });
 
 
